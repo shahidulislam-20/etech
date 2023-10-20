@@ -5,7 +5,6 @@ import 'react-awesome-slider/dist/custom-animations/cube-animation.css';
 import { useEffect } from "react";
 import { useState } from "react";
 
-
 const ProductAd = () => {
 
     const loadedProducts = useLoaderData();
