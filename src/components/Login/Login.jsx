@@ -4,7 +4,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { FaGoogle } from "react-icons/fa";
 
-
 const Login = () => {
 
     const location = useLocation();
