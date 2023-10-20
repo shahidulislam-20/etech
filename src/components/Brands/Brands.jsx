@@ -7,7 +7,6 @@ const Brands = () => {
     const handleBrandProduct = (brand) => {
         console.log(brand);
         <ProductAd brand={brand}></ProductAd>
-
     }
 
     return (
