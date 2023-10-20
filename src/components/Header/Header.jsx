@@ -60,7 +60,6 @@ const Header = () => {
                             </div>
                                 : <Link to="/login" className="btn bg-custom font-bold text-white hover:text-black">Login</Link>
                         }
-
                     </div>
                 </div>
             </div>
