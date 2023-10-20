@@ -8,7 +8,7 @@ const Featured = () => {
 
     useEffect(() => {
 
-        fetch('https://etech-server-f4q7p9tuv-ishahidul018-gmailcom.vercel.app/products/')
+        fetch('https://etech-server-f0bwcw1a9-ishahidul018-gmailcom.vercel.app/products/')
         .then(res => res.json())
         .then(data => setLoadedProducts(data))
 

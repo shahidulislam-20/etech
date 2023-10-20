@@ -16,7 +16,7 @@ const AddProduct = () => {
         console.log(name, brandName, type, price, photo, rating, shortDescription);
         const products = {name, brandName, type, price, rating, photo, shortDescription};
 
-        fetch('https://etech-server-f4q7p9tuv-ishahidul018-gmailcom.vercel.app/products', {
+        fetch('https://etech-server-f0bwcw1a9-ishahidul018-gmailcom.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
