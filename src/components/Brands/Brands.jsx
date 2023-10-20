@@ -7,17 +7,7 @@ const Brands = () => {
     const handleBrandProduct = (brand) => {
         console.log(brand);
         <ProductAd brand={brand}></ProductAd>
-        // fetch(`https://etech-server-f4q7p9tuv-ishahidul018-gmailcom.vercel.app/products/${brand}`, {
-        //     method: 'GET',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(brand)
-        // })
-        // .then(res => res.json())
-        // .then(data => {
-        //     console.log(data)
-        // })
+
     }
 
     return (
