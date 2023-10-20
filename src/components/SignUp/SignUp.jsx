@@ -19,7 +19,7 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photo.value;
-        //console.log(name, email, password, photo);
+
 
         if(password.length < 6){
             toast("Password dont be less than 6 character");
