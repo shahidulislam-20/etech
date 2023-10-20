@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import ProductAd from "../ProductAd/ProductAd";
 
-
 const Brands = () => {
 
     const handleBrandProduct = (brand) => {
