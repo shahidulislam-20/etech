@@ -4,9 +4,12 @@ import 'react-awesome-slider/dist/styles.css';
 import 'react-awesome-slider/dist/custom-animations/cube-animation.css';
 import { useEffect } from "react";
 import { useState } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const ProductAd = () => {
 
+    const {darkMode} = useContext(AuthContext);
     const loadedProducts = useLoaderData();
     const [unavailable, setUnavailable] = useState('');
 
@@ -18,9 +21,9 @@ const ProductAd = () => {
     }, [])
 
     console.log(loadedProducts);
-
+    
     return (
-        <div>
+        <div style={darkMode?{background: 'white'}:{background: '#202124', color: 'white', border: 'none'}}>
             <div>
                 <AwesomeSlider className="h-screen" animation="cubeAnimation" bullets={false}>
                     {/* Slider 01 */}
@@ -50,7 +53,9 @@ const ProductAd = () => {
                 </div>
                 <div className="grid lg:grid-cols-4 grid-cols-1 gap-6">
                     {
-                        loadedProducts.map(product => <div key={product._id} className="card card-compact bg-base-100 shadow-2xl border">
+                        loadedProducts.map(product => <div key={product._id} 
+                            style={darkMode?{background: 'white'}:{background: '#333', color: 'white', border: 'none'}}
+                            className="card card-compact bg-base-100 shadow-2xl border pt-5">
                             <figure><img className="h-52" src={product.photo} alt="product" /></figure>
                             <div className="card-body">
                                 <div>

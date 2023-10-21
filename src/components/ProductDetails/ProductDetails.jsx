@@ -1,9 +1,12 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 const ProductDetails = () => {
 
+    const {darkMode} = useContext(AuthContext);
     const loadedProducts = useLoaderData();
     const { _id, name, brandName, type, price, rating, photo, shortDescription} = loadedProducts;
 
@@ -31,14 +34,16 @@ const ProductDetails = () => {
     }
 
     return (
-        <div className="max-w-7xl mx-auto pt-20 pb-10">
-            <div>
-                <h2 className="text-4xl text-black text-center font-bold uppercase"><span className="text-custom">Product</span> Details</h2>
+        <div style={darkMode?{background: 'white'}:{background: '#202124', color: 'white', border: 'none'}}>
+            <div  className="max-w-7xl mx-auto pt-20 pb-10">
+                <h2 className="text-4xl text-center font-bold uppercase"><span className="text-custom">Product</span> Details</h2>
                 <div className="flex lg:flex-row flex-col items-center gap-10 py-20">
                     <div>
                         <img src={photo} alt="" />
                     </div>
-                    <div className="shadow-2xl py-10 rounded-lg px-5">
+                    <div 
+                    style={darkMode?{background: 'white'}:{background: '#333', color: 'white', border: 'none'}}
+                    className="shadow-2xl py-10 rounded-lg px-5">
                         <h3 className="text-2xl font-bold">{name}</h3>
                         <h4>Brand Name : {brandName}</h4>
                         <p className="mb-5">Type : {type}</p>

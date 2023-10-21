@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 const MyCart = () => {
 
+    const {darkMode} = useContext(AuthContext);
     const loadedCart = useLoaderData();
     const [carts, setCarts] = useState([]);
     const [display, setDisplay] = useState(loadedCart);
@@ -55,8 +58,8 @@ const MyCart = () => {
     }
 
     return (
-        <div className="max-w-7xl mx-auto py-28">
-            <div>
+        <div style={darkMode?{background: 'white'}:{background: '#202124', color: 'white', border: 'none'}}>
+            <div className="max-w-7xl mx-auto py-28">
                 <div>
                     <h2 className="text-4xl font-bold text-center uppercase"><span className="text-custom">My</span> Cart</h2>
                     <h3 className="text-xl my-5 font-bold text-center uppercase">Total Add to Cart ({myCartProduct.length})</h3>
@@ -64,6 +67,7 @@ const MyCart = () => {
                 <div>
                     {
                         myCartProduct.map(product => <div
+                            style={darkMode?{background: 'white'}:{background: '#333', color: 'white', border: 'none'}}
                             className="grid md:grid-cols-4 gap-10 shadow-xl p-10 rounded-lg my-5 items-center"
                             key={product._id}>
                             <div>

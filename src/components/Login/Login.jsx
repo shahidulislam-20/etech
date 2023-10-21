@@ -9,7 +9,7 @@ const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const { loginUser, googleLogin } = useContext(AuthContext);
+    const { loginUser, googleLogin, darkMode } = useContext(AuthContext);
     const [loginError, setLoginError] = useState(null);
 
     const handleSubmitLogin = e => {
@@ -62,20 +62,26 @@ const Login = () => {
     }
 
     return (
-        <div className="max-w-7xl mx-auto py-20">
-            <div>
+        <div style={darkMode?{background: 'white'}:{background: '#202124', color: 'white', border: 'none'}}>
+            <div className="max-w-7xl mx-auto py-20">
                 <div>
                     <h2 className="text-4xl uppercase font-bold text-center mb-10"><span className="text-custom">Log In</span> Now!</h2>
                 </div>
-                <div className="lg:p-20 p-5 bg-base-300 max-w-2xl rounded-lg shadow-2xl mx-auto">
+                <div 
+                style={darkMode?{background: '#D4D4D4'}:{background: '#333', color: 'white', border: 'none'}}
+                className="lg:p-20 p-5 bg-base-300 max-w-2xl rounded-lg shadow-lg mx-auto">
                     <form onSubmit={handleSubmitLogin} className="space-y-8">
                         <div className="flex flex-col">
                             <label className="font-bold text-xl mb-2" htmlFor="email">Email</label>
-                            <input className="p-2 rounded-md" type="email" name="email" id="email" placeholder="Email" />
+                            <input 
+                            style={darkMode?{background: 'white'}:{background: '#202124', color: 'white', border: 'none'}}
+                            className="p-2 rounded-md" type="email" name="email" id="email" placeholder="Email" />
                         </div>
                         <div className="flex flex-col">
                             <label className="font-bold text-xl mb-2" htmlFor="password">Password</label>
-                            <input className="p-2 rounded-md" type="password" name="password" id="password" placeholder="Password" />
+                            <input 
+                            style={darkMode?{background: 'white'}:{background: '#202124', color: 'white', border: 'none'}}
+                            className="p-2 rounded-md" type="password" name="password" id="password" placeholder="Password" />
                         </div>
                         <div>
                             <input className="btn w-full bg-custom font-bold text-white hover:bg-base-content" type="submit" value="Log In" />

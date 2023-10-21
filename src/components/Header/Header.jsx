@@ -4,10 +4,13 @@ import './Header.css';
 import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import userDefaultPhoto from '../../assets/user.png';
+import { FiSun } from "react-icons/fi";
+
 
 const Header = () => {
 
     const { user, logOutUser, setDarkMode, darkMode } = useContext(AuthContext);
+
 
     const navLinks = <>
         <li className='font-bold text-md'><a><NavLink to="/">Home</NavLink></a></li>
@@ -18,9 +21,9 @@ const Header = () => {
             </>
         }
         <li className='font-bold text-md'><a><NavLink to="/sign-up">Sign Up</NavLink></a></li>
-        <button onClick={() => setDarkMode(!darkMode)} 
-        style={darkMode?{background: 'gray', color: 'white'}:{background: '#ccc', color: 'black'}} 
-        className='bg-base-300 rounded-full px-2'>Dark Mode</button>
+            <button onClick={() => setDarkMode(!darkMode)} 
+            style={darkMode?{background: 'gray', color: 'white'}:{background: '#ccc', color: 'black'}} 
+            className='bg-base-300 rounded-full px-3 text-xl text-center'><FiSun></FiSun></button>
     </>
 
     const handleLogOut = () => {
@@ -42,7 +45,9 @@ const Header = () => {
                             <label tabIndex={0} className="btn btn-ghost lg:hidden">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                             </label>
-                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                            <ul tabIndex={0} 
+                            style={darkMode?{background: 'white'}:{background: '#202124', color: 'white'}} 
+                            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                 {navLinks}
                             </ul>
                         </div>

@@ -7,9 +7,11 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 
+
 const Home = () => {
 
     const {darkMode} = useContext(AuthContext);
+    
 
     return (
         <div style={darkMode?{background: 'white'}:{background: '#202124', color: 'white'}} className="font-poppins">
