@@ -27,7 +27,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch('https://etech-server-f0bwcw1a9-ishahidul018-gmailcom.vercel.app/products')
       },
       {
         path: "/add-product",
