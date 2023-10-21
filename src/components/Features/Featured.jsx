@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 const Featured = () => {
 
+    const {darkMode} = useContext(AuthContext);
     const [loadedProducts, setLoadedProducts] = useState([]);
 
     useEffect(() => {
@@ -22,7 +24,9 @@ const Featured = () => {
             <div className="max-w-7xl mx-auto mt-10">
                 <div className="grid lg:grid-cols-4 grid-cols-1 gap-6">
                     {
-                        loadedProducts.slice(0, 8).map(product => <div key={product._id} className="card card-compact bg-base-100 shadow-2xl border">
+                        loadedProducts.slice(0, 8).map(product => <div key={product._id} 
+                        style={darkMode?{background: 'white'}:{background: '#333', color: 'white', border: 'none'}}
+                        className="card card-compact bg-base-100 shadow-2xl border">
                             <figure><img className="h-52" src={product.photo} alt="product" /></figure>
                             <div className="card-body">
                                 <div>

@@ -7,7 +7,7 @@ import userDefaultPhoto from '../../assets/user.png';
 
 const Header = () => {
 
-    const { user, logOutUser } = useContext(AuthContext);
+    const { user, logOutUser, setDarkMode, darkMode } = useContext(AuthContext);
 
     const navLinks = <>
         <li className='font-bold text-md'><a><NavLink to="/">Home</NavLink></a></li>
@@ -18,6 +18,9 @@ const Header = () => {
             </>
         }
         <li className='font-bold text-md'><a><NavLink to="/sign-up">Sign Up</NavLink></a></li>
+        <button onClick={() => setDarkMode(!darkMode)} 
+        style={darkMode?{background: 'gray', color: 'white'}:{background: '#ccc', color: 'black'}} 
+        className='bg-base-300 rounded-full px-2'>Dark Mode</button>
     </>
 
     const handleLogOut = () => {
@@ -29,7 +32,9 @@ const Header = () => {
     }
 
     return (
-        <div className='sticky z-10 bg-[#ffffffd0] top-0'>
+        <div 
+        style={darkMode?{background: 'white'}:{background: '#202124', color: 'white'}} 
+        className='sticky z-10 bg-[#ffffffd0] top-0'>
             <div className="max-w-7xl mx-auto">
                 <div className="navbar flex-col md:flex-row">
                     <div className="navbar-start">
@@ -43,7 +48,7 @@ const Header = () => {
                         </div>
                         <Link to="/" className="flex items-center normal-case text-xl">
                             <img className='w-10 h-10 mr-2' src={logo} alt="" />
-                            <h3 className='text-3xl text-black font-extrabold'><span className='text-custom'>E</span>TECH.</h3>
+                            <h3 className='text-3xl font-extrabold'><span className='text-custom'>E</span>TECH.</h3>
                         </Link>
                     </div>
                     <div className="navbar-center hidden lg:flex">
