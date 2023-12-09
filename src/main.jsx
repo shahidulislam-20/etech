@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch('https://etech-server-f0bwcw1a9-ishahidul018-gmailcom.vercel.app/products')
+        loader: () => fetch('https://etech-server.vercel.app/products')
       },
       {
         path: "/add-product",
@@ -37,22 +37,22 @@ const router = createBrowserRouter([
       {
         path: "/product-ad/:brand",
         element: <ProductAd></ProductAd>,
-        loader: ({params}) => fetch(`https://etech-server-f0bwcw1a9-ishahidul018-gmailcom.vercel.app/products/${params.brand}`)
+        loader: ({params}) => fetch(`https://etech-server.vercel.app/products/${params.brand}`)
       },
       {
         path: "/product-details/product/:id",
         element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
-        loader: ({params}) => fetch(`https://etech-server-f0bwcw1a9-ishahidul018-gmailcom.vercel.app/products/product/${params.id}`)
+        loader: ({params}) => fetch(`https://etech-server.vercel.app/products/product/${params.id}`)
       },
       {
         path: 'my-cart',
         element: <PrivateRoute><MyCart></MyCart></PrivateRoute>,
-        loader: () => fetch('https://etech-server-f0bwcw1a9-ishahidul018-gmailcom.vercel.app/addtocart')
+        loader: () => fetch('https://etech-server.vercel.app/addtocart')
       },
       {
         path: '/update-product/:id',
         element: <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
-        loader: ({params}) => fetch(`https://etech-server-f0bwcw1a9-ishahidul018-gmailcom.vercel.app/products/product/${params.id}`)
+        loader: ({params}) => fetch(`https://etech-server.vercel.app/products/product/${params.id}`)
       },
       {
         path: '/sign-up',

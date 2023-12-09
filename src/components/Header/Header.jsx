@@ -13,14 +13,14 @@ const Header = () => {
 
 
     const navLinks = <>
-        <li className='font-bold text-md'><a><NavLink to="/">Home</NavLink></a></li>
+        <li className='font-bold text-md'><NavLink to="/">Home</NavLink></li>
         {
             user && <>
-            <li className='font-bold text-md'><a><NavLink to="/add-product">Add Product</NavLink></a></li>
-            <li className='font-bold text-md'><a><NavLink to="/my-cart">My Cart</NavLink></a></li>
+            <li className='font-bold text-md'><NavLink to="/add-product">Add Product</NavLink></li>
+            <li className='font-bold text-md'><NavLink to="/my-cart">My Cart</NavLink></li>
             </>
         }
-        <li className='font-bold text-md'><a><NavLink to="/sign-up">Sign Up</NavLink></a></li>
+        <li className='font-bold text-md'><NavLink to="/sign-up">Sign Up</NavLink></li>
             <button onClick={() => setDarkMode(!darkMode)} 
             style={darkMode?{background: 'gray', color: 'white'}:{background: '#ccc', color: 'black'}} 
             className='bg-base-300 rounded-full px-3 text-xl text-center'><FiSun></FiSun></button>

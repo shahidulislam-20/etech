@@ -6,17 +6,17 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const ProductDetails = () => {
 
-    const {darkMode} = useContext(AuthContext);
+    const {darkMode, user} = useContext(AuthContext);
     const loadedProducts = useLoaderData();
     const { _id, name, brandName, type, price, rating, photo, shortDescription} = loadedProducts;
-
+    const userName = user.email;
     const handleAddToCart = id => {
-        fetch('https://etech-server-f0bwcw1a9-ishahidul018-gmailcom.vercel.app/addtocart', {
+        fetch('https://etech-server.vercel.app/addtocart', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({id})
+            body: JSON.stringify({id, userName})
         })
         .then(res => res.json())
         .then(data => {

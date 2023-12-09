@@ -7,18 +7,22 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const MyCart = () => {
 
-    const {darkMode} = useContext(AuthContext);
+    const {darkMode, user} = useContext(AuthContext);
     const loadedCart = useLoaderData();
     const [carts, setCarts] = useState([]);
-    const [display, setDisplay] = useState(loadedCart);
+    const userCart = loadedCart.filter(userEmail => userEmail.userName == user.email);
+    const [display, setDisplay] = useState(userCart);
 
     useEffect(() => {
 
-        fetch('https://etech-server-f0bwcw1a9-ishahidul018-gmailcom.vercel.app/products')
+        fetch('https://etech-server.vercel.app/products')
             .then(res => res.json())
             .then(data => setCarts(data))
 
     }, [])
+
+    
+    
 
     const myCartProduct = carts.filter(cart => {
         return display.find(load => load.id == cart._id);
@@ -36,7 +40,7 @@ const MyCart = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://etech-server-f0bwcw1a9-ishahidul018-gmailcom.vercel.app/addtocart/${id}`, {
+                fetch(`https://etech-server.vercel.app/addtocart/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
